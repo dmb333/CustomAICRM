@@ -16,25 +16,41 @@
   a { color: var(--color-accent-700); text-decoration: none; }
   a:hover { color: var(--color-accent-900); }
   ::selection { background: color-mix(in srgb, var(--color-accent) 28%, transparent); }
+  .ind-tab.is-active { background: var(--color-accent-900); color: var(--color-bg); }
+  .ind-panel { display: none; }
+  .ind-panel.is-active { display: block; }
 </style>
 </helmet>
 
 <div style="font-family: var(--font-body); color: var(--color-text);">
 
   <nav style="display:flex; align-items:center; gap:24px; padding:16px clamp(20px,5vw,72px); border-bottom:1px solid var(--color-divider); position:sticky; top:0; background:color-mix(in srgb, var(--color-bg) 88%, transparent); backdrop-filter:blur(8px); z-index:20;">
-    <span style="margin-right:auto; display:inline-flex; align-items:center;"><img src="logo.png" alt="Custom AI CRM" style="height:48px; width:auto; display:block;"></span>
+    <span style="margin-right:auto; display:inline-flex; align-items:center;"><img src="logo.png" alt="Custom AI CRM" style="height:72px; width:auto; display:block;"></span>
     <a href="#overview" style="font-size:14px; text-transform:uppercase; letter-spacing:0.06em; color:var(--color-text);">Overview</a>
     <a href="#capabilities" style="font-size:14px; text-transform:uppercase; letter-spacing:0.06em; color:var(--color-text);">Capabilities</a>
-    <a href="#ownership" style="font-size:14px; text-transform:uppercase; letter-spacing:0.06em; color:var(--color-text);">Ownership</a>
+    <a href="#industries" style="font-size:14px; text-transform:uppercase; letter-spacing:0.06em; color:var(--color-text);">Industries</a>
     <a href="#pricing" style="font-size:14px; text-transform:uppercase; letter-spacing:0.06em; color:var(--color-text);">Pricing</a>
-    <a href="#book" class="btn btn-primary" style="text-decoration:none; white-space:nowrap; display:inline-flex; align-items:center; width:auto;">Book a Scoping Call</a>
+    <a href="#book" class="btn btn-primary" style="text-decoration:none; white-space:nowrap; display:inline-flex; align-items:center; width:auto;">Book a Demo</a>
   </nav>
 
   <div style="max-width:1200px; margin:0 auto; padding:0 clamp(20px,5vw,72px);">
 
-    <!-- HERO VIDEO -->
-    <section style="padding:clamp(36px,6vw,64px) 0 clamp(20px,3vw,32px);">
-      <span style="font-family:var(--font-body); font-size:13px; line-height:1; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-700); display:block; margin-bottom:16px;">Product tour</span>
+    <!-- HERO: split, copy left, video right -->
+    <section style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(28px,4vw,56px); align-items:center; padding:clamp(32px,5vw,64px) 0 clamp(40px,6vw,72px);">
+      <div>
+        <h1 style="font-family:var(--font-heading); font-weight:600; text-transform:uppercase; letter-spacing:0.01em; font-size:clamp(40px,5.2vw,72px); line-height:1.02; margin:0; max-width:16ch;">
+          <span style="display:block;">Your CRM.</span>
+          <span style="display:block;">Your Code.</span>
+          <span style="display:block; color:var(--color-accent-700);">Powered by AI.</span>
+        </h1>
+        <p style="font-size:clamp(16px,1.3vw,19px); line-height:1.5; max-width:52ch; margin:24px 0 0; color:color-mix(in srgb, var(--color-text) 82%, transparent);">
+          A custom-built CRM that runs on your business, not a subscription you rent. Meetings transcribe themselves, emails draft from real client context, and your whole pipeline answers questions in plain English.
+        </p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:28px;">
+          <a href="#book" class="btn btn-primary" style="text-decoration:none; white-space:nowrap; display:inline-flex; align-items:center; width:auto;">Book a Demo</a>
+          <a href="#capabilities" class="btn btn-secondary" style="text-decoration:none; white-space:nowrap; display:inline-flex; align-items:center; width:auto;">See what it does</a>
+        </div>
+      </div>
       <figure class="blueprint" style="position:relative; margin:0; aspect-ratio:16/9; width:100%; background:var(--color-accent-900); overflow:hidden;">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
         <iframe
@@ -44,16 +60,15 @@
           allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
           allowfullscreen="true"
           title="Custom AI CRM product tour"></iframe>
-        <button type="button" onclick="document.getElementById('video-sound-modal').style.display='grid'" style="position:absolute; bottom:16px; right:16px; z-index:2; display:inline-flex; align-items:center; gap:8px; padding:10px 16px; font-family:var(--font-heading); font-weight:600; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-bg); background:color-mix(in srgb, var(--color-accent-900) 82%, transparent); border:1px solid color-mix(in srgb, var(--color-bg) 55%, transparent); border-radius:0; cursor:pointer; backdrop-filter:blur(4px);">
+        <button type="button" onclick="document.getElementById('video-sound-modal').style.display='grid'" style="position:absolute; top:14px; left:14px; z-index:2; display:inline-flex; align-items:center; gap:8px; padding:10px 16px; font-family:var(--font-heading); font-weight:600; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-bg); background:var(--color-accent); border:1px solid var(--color-bg); border-radius:0; cursor:pointer; box-shadow:var(--shadow-md);">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
           Watch with Sound
         </button>
       </figure>
-      <p style="font-size:13px; letter-spacing:0.04em; text-transform:uppercase; color:color-mix(in srgb, var(--color-text) 60%, transparent); margin:12px 0 0;">Fig. 01 — Product walkthrough</p>
     </section>
 
     <!-- WATCH WITH SOUND MODAL -->
-    <div id="video-sound-modal" style="display:none; position:fixed; inset:0; z-index:100; place-items:center; padding:clamp(16px,4vw,48px); background:color-mix(in srgb, var(--color-accent-900) 70%, transparent);" onclick="if(event.target===this){this.style.display='none'; document.getElementById('video-sound-player').src=document.getElementById('video-sound-player').src;}">
+    <div id="video-sound-modal" style="display:none; position:fixed; inset:0; z-index:100; place-items:center; padding:clamp(16px,4vw,48px); background:color-mix(in srgb, var(--color-accent-900) 70%, transparent);" onclick="if(event.target===this){this.style.display='none'; var p=document.getElementById('video-sound-player'); p.src=p.src;}">
       <div style="width:min(1000px,100%);">
         <div class="blueprint" style="position:relative; aspect-ratio:16/9; width:100%; background:var(--color-accent-900); overflow:hidden;">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
@@ -66,64 +81,42 @@
             title="Custom AI CRM product tour with sound"></iframe>
         </div>
         <div style="text-align:right; margin-top:12px;">
-          <button type="button" onclick="document.getElementById('video-sound-modal').style.display='none'; document.getElementById('video-sound-player').src=document.getElementById('video-sound-player').src;" class="btn btn-primary" style="width:auto;">Close</button>
+          <button type="button" onclick="document.getElementById('video-sound-modal').style.display='none'; var p=document.getElementById('video-sound-player'); p.src=p.src;" class="btn btn-primary" style="width:auto;">Close</button>
         </div>
       </div>
     </div>
 
-    <!-- HERO -->
-    <section style="padding:clamp(24px,4vw,48px) 0 clamp(40px,6vw,72px);">
-      <h1 style="font-family:var(--font-heading); font-weight:600; text-transform:uppercase; letter-spacing:0.01em; font-size:clamp(44px,7.4vw,92px); line-height:1.02; margin:0; max-width:16ch;">
-        <span style="display:block;">Your CRM.</span>
-        <span style="display:block;">Your Code.</span>
-        <span style="display:block; color:var(--color-accent-700);">Powered by AI.</span>
-      </h1>
-      <p style="font-size:clamp(17px,1.5vw,20px); line-height:1.5; max-width:56ch; margin:28px 0 0; color:color-mix(in srgb, var(--color-text) 82%, transparent);">
-        A custom-built CRM that runs on your business — not a subscription you rent. Meetings transcribe themselves, emails draft from real client context, and your whole pipeline answers questions in plain English.
-      </p>
-      <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:32px;">
-        <a href="#book" class="btn btn-primary" style="text-decoration:none; white-space:nowrap; display:inline-flex; align-items:center; width:auto;">Book a Scoping Call</a>
-        <a href="#capabilities" class="btn btn-secondary" style="text-decoration:none; white-space:nowrap; display:inline-flex; align-items:center; width:auto;">See what it does</a>
-      </div>
-    </section>
-
-    <!-- SYSTEM SPECIFICATION PLATE -->
+    <!-- WHAT THIS IS -->
     <section id="overview" style="padding:clamp(40px,6vw,72px) 0 clamp(24px,4vw,48px);">
       <span style="font-family:var(--font-body); font-size:13px; line-height:1; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-700); display:block; margin-bottom:12px;">{{ n1 }}What this is</span>
       <hr style="height:1px; border:0; background:var(--color-divider); margin:0 0 28px;">
       <div class="blueprint" style="position:relative;">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <header style="display:flex; flex-wrap:wrap; align-items:stretch; border-bottom:1px solid var(--color-divider);">
-          <span style="flex:1; min-width:16ch; padding:12px 24px; font-size:13px; line-height:24px; letter-spacing:0.08em; text-transform:uppercase; font-weight:600;">System specification</span>
-          <span style="border-left:1px solid var(--color-divider); padding:12px 24px; font-size:13px; line-height:24px; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:color-mix(in srgb, var(--color-text) 70%, transparent); white-space:nowrap;">Rev A</span>
-          <span style="border-left:1px solid var(--color-divider); padding:12px 24px; font-size:13px; line-height:24px; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:color-mix(in srgb, var(--color-text) 70%, transparent); white-space:nowrap;">Sheet 01</span>
+        <header style="border-bottom:1px solid var(--color-divider);">
+          <span style="display:block; padding:12px 24px; font-size:13px; line-height:24px; letter-spacing:0.08em; text-transform:uppercase; font-weight:600;">How it works</span>
         </header>
         <table class="table" style="table-layout:fixed; width:100%;">
-          <colgroup><col style="width:72px;"><col style="width:32%;"><col><col style="width:26%;"></colgroup>
+          <colgroup><col style="width:72px;"><col style="width:34%;"><col></colgroup>
           <tbody>
             <tr>
               <td style="font-size:13px; font-weight:600; letter-spacing:0.08em; color:var(--color-accent-700); padding:14px 0 14px 24px; vertical-align:middle;">01</td>
               <td style="padding:14px 24px 14px 0; vertical-align:middle;"><span style="font-family:var(--font-heading); font-weight:600; font-size:20px; letter-spacing:0.02em; text-transform:uppercase;">Platform</span></td>
               <td style="padding:14px 24px 14px 0; vertical-align:middle; font-size:15px; color:color-mix(in srgb, var(--color-text) 80%, transparent);">Built on Google Workspace core</td>
-              <td style="padding:14px 24px 14px 0; vertical-align:middle; font-size:13px; text-transform:uppercase; letter-spacing:0.04em; color:color-mix(in srgb, var(--color-text) 60%, transparent);">Standard build</td>
             </tr>
             <tr>
               <td style="font-size:13px; font-weight:600; letter-spacing:0.08em; color:var(--color-accent-700); padding:14px 0 14px 24px; vertical-align:middle;">02</td>
               <td style="padding:14px 24px 14px 0; vertical-align:middle;"><span style="font-family:var(--font-heading); font-weight:600; font-size:20px; letter-spacing:0.02em; text-transform:uppercase;">AI engine</span></td>
               <td style="padding:14px 24px 14px 0; vertical-align:middle; font-size:15px; color:color-mix(in srgb, var(--color-text) 80%, transparent);">Connected to Anthropic's Claude</td>
-              <td style="padding:14px 24px 14px 0; vertical-align:middle; font-size:13px; text-transform:uppercase; letter-spacing:0.04em; color:color-mix(in srgb, var(--color-text) 60%, transparent);">Native</td>
             </tr>
             <tr>
               <td style="font-size:13px; font-weight:600; letter-spacing:0.08em; color:var(--color-accent-700); padding:14px 0 14px 24px; vertical-align:middle;">03</td>
               <td style="padding:14px 24px 14px 0; vertical-align:middle;"><span style="font-family:var(--font-heading); font-weight:600; font-size:20px; letter-spacing:0.02em; text-transform:uppercase;">Meetings</span></td>
-              <td style="padding:14px 24px 14px 0; vertical-align:middle; font-size:15px; color:color-mix(in srgb, var(--color-text) 80%, transparent);">Transcribed &amp; logged automatically</td>
-              <td style="padding:14px 24px 14px 0; vertical-align:middle; font-size:13px; text-transform:uppercase; letter-spacing:0.04em; color:color-mix(in srgb, var(--color-text) 60%, transparent);">Hands-off</td>
+              <td style="padding:14px 24px 14px 0; vertical-align:middle; font-size:15px; color:color-mix(in srgb, var(--color-text) 80%, transparent);">Transcribed and logged automatically</td>
             </tr>
             <tr>
               <td style="font-size:13px; font-weight:600; letter-spacing:0.08em; color:var(--color-accent-700); padding:14px 0 14px 24px; vertical-align:middle;">04</td>
               <td style="padding:14px 24px 14px 0; vertical-align:middle;"><span style="font-family:var(--font-heading); font-weight:600; font-size:20px; letter-spacing:0.02em; text-transform:uppercase;">Ownership</span></td>
               <td style="padding:14px 24px 14px 0; vertical-align:middle; font-size:15px; color:color-mix(in srgb, var(--color-text) 80%, transparent);">You own the code, outright</td>
-              <td style="padding:14px 24px 14px 0; vertical-align:middle; font-size:13px; text-transform:uppercase; letter-spacing:0.04em; color:color-mix(in srgb, var(--color-text) 60%, transparent);">Yours</td>
             </tr>
           </tbody>
         </table>
@@ -138,126 +131,185 @@
       <div style="display:grid; grid-template-columns:repeat({{ featureCols }}, minmax(0,1fr)); gap:clamp(20px,3vw,40px);">
         <div class="blueprint" style="position:relative; padding:24px;">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-          <h3 style="font-family:var(--font-heading); font-weight:600; font-size:21px; line-height:1.1; letter-spacing:0.02em; text-transform:uppercase; margin:0;">Scores &amp; ranks leads</h3>
-          <p style="font-size:15px; line-height:24px; margin:14px 0 0; color:color-mix(in srgb, var(--color-text) 78%, transparent);">Every contact ordered by likelihood to transact, so the next call is never a guess.</p>
+          <h3 style="font-family:var(--font-heading); font-weight:600; font-size:21px; line-height:1.1; letter-spacing:0.02em; text-transform:uppercase; margin:0;">Scores and ranks leads</h3>
+          <p style="font-size:15px; line-height:24px; margin:14px 0 0; color:color-mix(in srgb, var(--color-text) 78%, transparent);">Every contact ordered by likelihood to move forward, so the next call is never a guess.</p>
         </div>
         <div class="blueprint" style="position:relative; padding:24px;">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
           <h3 style="font-family:var(--font-heading); font-weight:600; font-size:21px; line-height:1.1; letter-spacing:0.02em; text-transform:uppercase; margin:0;">Briefs you before a call</h3>
-          <p style="font-size:15px; line-height:24px; margin:14px 0 0; color:color-mix(in srgb, var(--color-text) 78%, transparent);">Auto-summarizes a contact's full history the moment you need it.</p>
+          <p style="font-size:15px; line-height:24px; margin:14px 0 0; color:color-mix(in srgb, var(--color-text) 78%, transparent);">Summarizes a contact's full history the moment you need it, so you walk in prepared.</p>
         </div>
         <div class="blueprint" style="position:relative; padding:24px;">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
           <h3 style="font-family:var(--font-heading); font-weight:600; font-size:21px; line-height:1.1; letter-spacing:0.02em; text-transform:uppercase; margin:0;">Drafts your email</h3>
-          <p style="font-size:15px; line-height:24px; margin:14px 0 0; color:color-mix(in srgb, var(--color-text) 78%, transparent);">Follow-ups, newsletters and listing emails, written from your own data.</p>
+          <p style="font-size:15px; line-height:24px; margin:14px 0 0; color:color-mix(in srgb, var(--color-text) 78%, transparent);">Follow-ups, newsletters and updates, written from your own client data in your voice.</p>
         </div>
         <div class="blueprint" style="position:relative; padding:24px;">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
           <h3 style="font-family:var(--font-heading); font-weight:600; font-size:21px; line-height:1.1; letter-spacing:0.02em; text-transform:uppercase; margin:0;">Flags stalling deals</h3>
-          <p style="font-size:15px; line-height:24px; margin:14px 0 0; color:color-mix(in srgb, var(--color-text) 78%, transparent);">Catches stale leads and deals at risk of stalling before they go cold.</p>
+          <p style="font-size:15px; line-height:24px; margin:14px 0 0; color:color-mix(in srgb, var(--color-text) 78%, transparent);">Catches leads and deals at risk of going quiet, and surfaces them before they go cold.</p>
         </div>
         <div class="blueprint" style="position:relative; padding:24px;">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
           <h3 style="font-family:var(--font-heading); font-weight:600; font-size:21px; line-height:1.1; letter-spacing:0.02em; text-transform:uppercase; margin:0;">Answers in plain English</h3>
-          <p style="font-size:15px; line-height:24px; margin:14px 0 0; color:color-mix(in srgb, var(--color-text) 78%, transparent);">Natural-language search: "show me buyers under 500k active this month."</p>
+          <p style="font-size:15px; line-height:24px; margin:14px 0 0; color:color-mix(in srgb, var(--color-text) 78%, transparent);">Ask your pipeline a question in plain language and get the records back in seconds.</p>
         </div>
         <div class="blueprint" style="position:relative; padding:24px;">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
           <h3 style="font-family:var(--font-heading); font-weight:600; font-size:21px; line-height:1.1; letter-spacing:0.02em; text-transform:uppercase; margin:0;">Writes your content</h3>
-          <p style="font-size:15px; line-height:24px; margin:14px 0 0; color:color-mix(in srgb, var(--color-text) 78%, transparent);">Listing descriptions, social captions and client guides, on demand.</p>
+          <p style="font-size:15px; line-height:24px; margin:14px 0 0; color:color-mix(in srgb, var(--color-text) 78%, transparent);">Descriptions, social captions and client guides, generated from your records on demand.</p>
         </div>
       </div>
       <div style="margin-top:32px;">
-        <a href="#everything" class="btn btn-secondary" style="text-decoration:none; white-space:nowrap; display:inline-flex; align-items:center; width:auto;">See everything it does</a>
+        <button type="button" onclick="document.getElementById('everything-modal').style.display='grid'" class="btn btn-secondary" style="cursor:pointer; white-space:nowrap; display:inline-flex; align-items:center; width:auto;">See everything it does</button>
       </div>
     </section>
 
-    <!-- EVERYTHING THE AI DOES -->
-    <section id="everything" style="padding:clamp(24px,4vw,48px) 0 clamp(24px,4vw,48px);">
-      <span style="font-family:var(--font-body); font-size:13px; line-height:1; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-700); display:block; margin-bottom:12px;">Full capability list</span>
-      <hr style="height:1px; border:0; background:var(--color-divider); margin:0 0 8px;">
-      <h2 style="font-family:var(--font-heading); font-weight:600; font-size:clamp(30px,4vw,46px); line-height:1.04; letter-spacing:0.01em; text-transform:uppercase; margin:24px 0 32px;">Everything the AI does</h2>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:clamp(20px,3vw,40px);">
-
-        <div class="blueprint" style="position:relative; padding:24px;">
-          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-          <h3 style="font-family:var(--font-heading); font-weight:600; font-size:20px; line-height:1.1; letter-spacing:0.03em; text-transform:uppercase; margin:0;">Intelligence</h3>
-          <ul style="list-style:none; margin:16px 0 0; padding:0; display:flex; flex-direction:column; gap:11px;">
-            <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Scores and ranks leads by likelihood to transact</span></li>
-            <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Auto-summarizes a contact's full history before a call</span></li>
-            <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Detects buyer vs seller intent from email language</span></li>
-            <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Flags stale leads that need re-engagement</span></li>
-            <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Deduplicates and cleans contact records</span></li>
-          </ul>
+    <!-- EVERYTHING MODAL -->
+    <div id="everything-modal" style="display:none; position:fixed; inset:0; z-index:100; place-items:start center; padding:clamp(16px,4vw,48px); overflow-y:auto; background:color-mix(in srgb, var(--color-accent-900) 70%, transparent);" onclick="if(event.target===this){this.style.display='none';}">
+      <div class="blueprint" style="position:relative; width:min(920px,100%); background:var(--color-bg); padding:clamp(24px,4vw,44px); margin:auto;">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-bottom:8px;">
+          <div>
+            <span style="font-family:var(--font-body); font-size:13px; line-height:1; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-700); display:block; margin-bottom:10px;">Full capability list</span>
+            <h2 style="font-family:var(--font-heading); font-weight:600; font-size:clamp(26px,3.4vw,38px); line-height:1.04; letter-spacing:0.01em; text-transform:uppercase; margin:0;">Everything the AI does</h2>
+          </div>
+          <button type="button" onclick="document.getElementById('everything-modal').style.display='none';" aria-label="Close" style="flex:0 0 auto; width:40px; height:40px; display:inline-flex; align-items:center; justify-content:center; background:transparent; border:1px solid var(--color-divider); border-radius:0; cursor:pointer; color:var(--color-text);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
         </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:clamp(20px,3vw,36px); margin-top:24px;">
 
-        <div class="blueprint" style="position:relative; padding:24px;">
-          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-          <h3 style="font-family:var(--font-heading); font-weight:600; font-size:20px; line-height:1.1; letter-spacing:0.03em; text-transform:uppercase; margin:0;">Email &amp; communication</h3>
-          <ul style="list-style:none; margin:16px 0 0; padding:0; display:flex; flex-direction:column; gap:11px;">
-            <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Drafts personalized follow-ups from each contact's context</span></li>
-            <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Generates newsletters segmented by audience: buyers, sellers, past clients, referral sources</span></li>
-            <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Writes listing announcement emails from property data</span></li>
-            <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Drafts price-drop and back-on-market notices</span></li>
-            <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Composes birthday and closing-anniversary nurture messages</span></li>
-            <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Summarizes long email threads into the activity log</span></li>
-          </ul>
+          <div>
+            <h3 style="font-family:var(--font-heading); font-weight:600; font-size:18px; line-height:1.1; letter-spacing:0.03em; text-transform:uppercase; margin:0;">Intelligence</h3>
+            <ul style="list-style:none; margin:14px 0 0; padding:0; display:flex; flex-direction:column; gap:10px;">
+              <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Scores and ranks contacts by likelihood to move forward</span></li>
+              <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Summarizes a contact's full history before a call</span></li>
+              <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Detects intent and priority from email language</span></li>
+              <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Flags stale records that need re-engagement</span></li>
+              <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Deduplicates and cleans contact records</span></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 style="font-family:var(--font-heading); font-weight:600; font-size:18px; line-height:1.1; letter-spacing:0.03em; text-transform:uppercase; margin:0;">Email and communication</h3>
+            <ul style="list-style:none; margin:14px 0 0; padding:0; display:flex; flex-direction:column; gap:10px;">
+              <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Drafts personalized follow-ups from each contact's context</span></li>
+              <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Generates newsletters segmented by audience</span></li>
+              <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Writes announcement emails from your records</span></li>
+              <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Drafts update and status-change notices</span></li>
+              <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Composes birthday and milestone nurture messages</span></li>
+              <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Summarizes long email threads into the activity log</span></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 style="font-family:var(--font-heading); font-weight:600; font-size:18px; line-height:1.1; letter-spacing:0.03em; text-transform:uppercase; margin:0;">Content generation</h3>
+            <ul style="list-style:none; margin:14px 0 0; padding:0; display:flex; flex-direction:column; gap:10px;">
+              <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Writes descriptions and summaries from raw attributes</span></li>
+              <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Generates social captions and posting copy</span></li>
+              <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Creates comparison summaries for clients</span></li>
+              <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Drafts recaps after meetings and events</span></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 style="font-family:var(--font-heading); font-weight:600; font-size:18px; line-height:1.1; letter-spacing:0.03em; text-transform:uppercase; margin:0;">Pipeline and deals</h3>
+            <ul style="list-style:none; margin:14px 0 0; padding:0; display:flex; flex-direction:column; gap:10px;">
+              <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Summarizes pipeline status in plain language</span></li>
+              <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Suggests the next best action per stage</span></li>
+              <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Flags deals at risk of stalling</span></li>
+              <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Generates weekly pipeline reports</span></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 style="font-family:var(--font-heading); font-weight:600; font-size:18px; line-height:1.1; letter-spacing:0.03em; text-transform:uppercase; margin:0;">Client documents</h3>
+            <ul style="list-style:none; margin:14px 0 0; padding:0; display:flex; flex-direction:column; gap:10px;">
+              <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Drafts guides personalized to each client</span></li>
+              <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Creates overviews and one-pagers</span></li>
+              <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Writes itineraries and schedules</span></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 style="font-family:var(--font-heading); font-weight:600; font-size:18px; line-height:1.1; letter-spacing:0.03em; text-transform:uppercase; margin:0;">Automation and search</h3>
+            <ul style="list-style:none; margin:14px 0 0; padding:0; display:flex; flex-direction:column; gap:10px;">
+              <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Natural-language queries over your whole CRM</span></li>
+              <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Auto-tags and categorizes incoming activity</span></li>
+              <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Nurture cadence suggestions for past clients and referrals</span></li>
+            </ul>
+          </div>
+
         </div>
+      </div>
+    </div>
 
-        <div class="blueprint" style="position:relative; padding:24px;">
+    <!-- INDUSTRIES: tabbed -->
+    <section id="industries" style="padding:clamp(40px,6vw,72px) 0 clamp(24px,4vw,48px);">
+      <span style="font-family:var(--font-body); font-size:13px; line-height:1; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-700); display:block; margin-bottom:12px;">{{ n3 }}Industries</span>
+      <hr style="height:1px; border:0; background:var(--color-divider); margin:0 0 20px;">
+      <p style="font-size:clamp(16px,1.3vw,18px); line-height:1.5; max-width:60ch; margin:0 0 28px; color:color-mix(in srgb, var(--color-text) 82%, transparent);">
+        The core system is the same. The data model, pipeline stages, and templates are shaped to how your field actually works.
+      </p>
+      <div role="tablist" style="display:flex; flex-wrap:wrap; gap:0; border:1px solid var(--color-divider); width:fit-content; margin-bottom:28px;">
+        <button type="button" class="ind-tab is-active" onclick="dcIndTab('re', this)" style="font-family:var(--font-heading); font-weight:600; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; padding:10px 22px; background:transparent; border:0; cursor:pointer; color:inherit;">Real Estate</button>
+        <button type="button" class="ind-tab" onclick="dcIndTab('ins', this)" style="font-family:var(--font-heading); font-weight:600; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; padding:10px 22px; background:transparent; border:0; border-left:1px solid var(--color-divider); cursor:pointer; color:inherit;">Insurance</button>
+        <button type="button" class="ind-tab" onclick="dcIndTab('law', this)" style="font-family:var(--font-heading); font-weight:600; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; padding:10px 22px; background:transparent; border:0; border-left:1px solid var(--color-divider); cursor:pointer; color:inherit;">Law</button>
+      </div>
+
+      <div id="ind-re" class="ind-panel is-active">
+        <div class="blueprint" style="position:relative; padding:clamp(24px,3vw,36px);">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-          <h3 style="font-family:var(--font-heading); font-weight:600; font-size:20px; line-height:1.1; letter-spacing:0.03em; text-transform:uppercase; margin:0;">Property &amp; listing content</h3>
-          <ul style="list-style:none; margin:16px 0 0; padding:0; display:flex; flex-direction:column; gap:11px;">
-            <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Writes listing descriptions from raw attributes</span></li>
-            <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Generates social captions and posting copy</span></li>
-            <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Creates property comparison summaries for buyers</span></li>
-            <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Drafts open house recaps</span></li>
-          </ul>
+          <h3 style="font-family:var(--font-heading); font-weight:600; font-size:clamp(22px,2.4vw,28px); letter-spacing:0.02em; text-transform:uppercase; margin:0;">Built for real estate</h3>
+          <p style="font-size:15px; line-height:1.5; margin:14px 0 0; max-width:64ch; color:color-mix(in srgb, var(--color-text) 80%, transparent);">Buyers, sellers, leads and past clients tracked through a pipeline that mirrors a real transaction, from first inquiry to closing and beyond.</p>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:16px 32px; margin-top:24px;">
+            <div style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 82%, transparent);"><span style="color:var(--color-accent-700); font-weight:600;">+</span><span>Pipeline stages from lead to nurture, showing, offer, under contract, and closed</span></div>
+            <div style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 82%, transparent);"><span style="color:var(--color-accent-700); font-weight:600;">+</span><span>Listing descriptions and social captions drafted from property attributes</span></div>
+            <div style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 82%, transparent);"><span style="color:var(--color-accent-700); font-weight:600;">+</span><span>Buyer and seller guides, neighborhood overviews, and showing itineraries</span></div>
+            <div style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 82%, transparent);"><span style="color:var(--color-accent-700); font-weight:600;">+</span><span>Past-client nurture and referral cadences to keep repeat business warm</span></div>
+          </div>
         </div>
+      </div>
 
-        <div class="blueprint" style="position:relative; padding:24px;">
+      <div id="ind-ins" class="ind-panel">
+        <div class="blueprint" style="position:relative; padding:clamp(24px,3vw,36px);">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-          <h3 style="font-family:var(--font-heading); font-weight:600; font-size:20px; line-height:1.1; letter-spacing:0.03em; text-transform:uppercase; margin:0;">Deal &amp; pipeline</h3>
-          <ul style="list-style:none; margin:16px 0 0; padding:0; display:flex; flex-direction:column; gap:11px;">
-            <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Summarizes pipeline status in plain language</span></li>
-            <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Suggests next best action per deal stage</span></li>
-            <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Flags deals at risk of stalling</span></li>
-            <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Generates weekly pipeline reports</span></li>
-          </ul>
+          <h3 style="font-family:var(--font-heading); font-weight:600; font-size:clamp(22px,2.4vw,28px); letter-spacing:0.02em; text-transform:uppercase; margin:0;">Built for insurance</h3>
+          <p style="font-size:15px; line-height:1.5; margin:14px 0 0; max-width:64ch; color:color-mix(in srgb, var(--color-text) 80%, transparent);">Policyholders, prospects and carriers tracked against renewal dates and coverage, so nothing lapses and every renewal is a conversation you started first.</p>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:16px 32px; margin-top:24px;">
+            <div style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 82%, transparent);"><span style="color:var(--color-accent-700); font-weight:600;">+</span><span>Policies tracked by carrier, coverage, premium, and renewal date</span></div>
+            <div style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 82%, transparent);"><span style="color:var(--color-accent-700); font-weight:600;">+</span><span>Renewal reminders and cross-sell prompts surfaced before the deadline</span></div>
+            <div style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 82%, transparent);"><span style="color:var(--color-accent-700); font-weight:600;">+</span><span>Quote follow-ups and coverage explainers drafted from client details</span></div>
+            <div style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 82%, transparent);"><span style="color:var(--color-accent-700); font-weight:600;">+</span><span>Retention cadences that keep policyholders engaged between renewals</span></div>
+          </div>
         </div>
+      </div>
 
-        <div class="blueprint" style="position:relative; padding:24px;">
+      <div id="ind-law" class="ind-panel">
+        <div class="blueprint" style="position:relative; padding:clamp(24px,3vw,36px);">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-          <h3 style="font-family:var(--font-heading); font-weight:600; font-size:20px; line-height:1.1; letter-spacing:0.03em; text-transform:uppercase; margin:0;">Client-facing documents</h3>
-          <ul style="list-style:none; margin:16px 0 0; padding:0; display:flex; flex-direction:column; gap:11px;">
-            <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Drafts buyer and seller guides personalized to the client</span></li>
-            <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Creates neighborhood overviews</span></li>
-            <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Writes showing itineraries</span></li>
-          </ul>
+          <h3 style="font-family:var(--font-heading); font-weight:600; font-size:clamp(22px,2.4vw,28px); letter-spacing:0.02em; text-transform:uppercase; margin:0;">Built for law</h3>
+          <p style="font-size:15px; line-height:1.5; margin:14px 0 0; max-width:64ch; color:color-mix(in srgb, var(--color-text) 80%, transparent);">Leads, clients and matters tracked from intake through resolution, with referral sources and follow-up handled so no inquiry slips through.</p>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:16px 32px; margin-top:24px;">
+            <div style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 82%, transparent);"><span style="color:var(--color-accent-700); font-weight:600;">+</span><span>Matters tracked by practice area, stage, and key dates</span></div>
+            <div style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 82%, transparent);"><span style="color:var(--color-accent-700); font-weight:600;">+</span><span>Intake pipeline from inquiry to consultation to engagement</span></div>
+            <div style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 82%, transparent);"><span style="color:var(--color-accent-700); font-weight:600;">+</span><span>Client updates and intake summaries drafted from your notes</span></div>
+            <div style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 82%, transparent);"><span style="color:var(--color-accent-700); font-weight:600;">+</span><span>Referral-source tracking and past-client follow-up cadences</span></div>
+          </div>
         </div>
-
-        <div class="blueprint" style="position:relative; padding:24px;">
-          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-          <h3 style="font-family:var(--font-heading); font-weight:600; font-size:20px; line-height:1.1; letter-spacing:0.03em; text-transform:uppercase; margin:0;">Automation &amp; search</h3>
-          <ul style="list-style:none; margin:16px 0 0; padding:0; display:flex; flex-direction:column; gap:11px;">
-            <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Natural-language queries over your CRM: "show me buyers under 500k active this month"</span></li>
-            <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Auto-tags and categorizes incoming activity</span></li>
-            <li style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 80%, transparent);"><span style="color:var(--color-accent-700); font-weight:600; flex:0 0 auto;">+</span><span>Nurture cadence suggestions for past clients and referrals</span></li>
-          </ul>
-        </div>
-
       </div>
     </section>
 
   </div>
 
-  <!-- YOU OWN IT — steel field -->
+  <!-- YOU OWN IT: steel field -->
   <section id="ownership" style="background:var(--color-accent-900); color:var(--color-bg); padding:clamp(56px,8vw,96px) 0; margin-top:clamp(24px,4vw,48px);">
     <div style="max-width:1200px; margin:0 auto; padding:0 clamp(20px,5vw,72px);">
-      <span style="font-family:var(--font-body); font-size:13px; line-height:1; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-300); display:block; margin-bottom:16px;">{{ n3 }}Ownership</span>
+      <span style="font-family:var(--font-body); font-size:13px; line-height:1; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-300); display:block; margin-bottom:16px;">{{ n4 }}Ownership</span>
       <h2 style="font-family:var(--font-heading); font-weight:600; font-size:clamp(32px,4.5vw,52px); line-height:1.04; letter-spacing:0.01em; text-transform:uppercase; margin:0; max-width:14ch;">You own it</h2>
       <p style="font-size:clamp(16px,1.3vw,18px); line-height:1.5; max-width:56ch; margin:20px 0 40px; color:color-mix(in srgb, var(--color-bg) 82%, transparent);">
-        When you subscribe to CRM software, you pay every month forever and own nothing. Cancel, and you lose the tool — and often your data. With a custom build, you own the code.
+        When you subscribe to CRM software, you pay every month forever and own nothing. Cancel, and you lose the tool and often your data. With a custom build, you own the code.
       </p>
       <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:clamp(20px,3vw,40px);">
         <div style="position:relative; border:1px solid color-mix(in srgb, var(--color-bg) 24%, transparent); padding:24px;">
@@ -286,83 +338,89 @@
 
   <div style="max-width:1200px; margin:0 auto; padding:0 clamp(20px,5vw,72px);">
 
-    <!-- YOUR DATA COMES WITH YOU — split with image -->
-    <section style="display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr); gap:clamp(24px,5vw,72px); align-items:center; padding:clamp(48px,7vw,96px) 0;">
+    <!-- YOUR DATA COMES WITH YOU: split with image -->
+    <section style="display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:clamp(24px,5vw,72px); align-items:center; padding:clamp(48px,7vw,96px) 0;">
       <div>
-        <span style="font-family:var(--font-body); font-size:13px; line-height:1; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-700); display:block; margin-bottom:12px;">{{ n4 }}Migration</span>
+        <span style="font-family:var(--font-body); font-size:13px; line-height:1; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-700); display:block; margin-bottom:12px;">{{ n5 }}Migration</span>
         <hr style="height:1px; border:0; background:var(--color-divider); margin:0 0 24px;">
         <h2 style="font-family:var(--font-heading); font-weight:600; font-size:clamp(28px,3.4vw,40px); line-height:1.06; letter-spacing:0.02em; text-transform:uppercase; margin:0; max-width:16ch;">Your data comes with you</h2>
         <p style="font-size:16px; line-height:1.5; margin:20px 0 0; max-width:48ch; color:color-mix(in srgb, var(--color-text) 80%, transparent);">
-          We clean up and import your existing CRM data as part of the build. Duplicates removed, records standardized, history preserved — nothing left behind.
+          We clean up and import your existing CRM data as part of the build. Duplicates removed, records standardized, history preserved, nothing left behind.
         </p>
       </div>
-      <figure class="blueprint duotone" style="margin:0; aspect-ratio:4/5; width:100%;">
-        <image-slot id="crm-data" shape="rect" fit="cover" placeholder="Before / after of a data import — a messy, duplicated contact list on one side cleaned into standardized, deduplicated records on the other"></image-slot>
+      <figure class="blueprint" style="margin:0; width:100%;">
+        <img src="migration.png" alt="Before and after of a data import: a messy, duplicated contact list on one side cleaned into standardized, deduplicated records on the other" style="display:block; width:100%; height:auto;">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
       </figure>
     </section>
 
     <!-- PRICING -->
     <section id="pricing" style="padding:clamp(40px,6vw,72px) 0 clamp(40px,6vw,72px); border-top:1px solid var(--color-divider);">
-      <span style="font-family:var(--font-body); font-size:13px; line-height:1; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-700); display:block; margin-bottom:12px;">{{ n5 }}Pricing</span>
+      <span style="font-family:var(--font-body); font-size:13px; line-height:1; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-700); display:block; margin-bottom:12px;">{{ n6 }}Pricing</span>
       <hr style="height:1px; border:0; background:var(--color-divider); margin:0 0 32px;">
       <p style="font-size:clamp(17px,1.4vw,19px); line-height:1.5; margin:0 0 32px; max-width:60ch; color:color-mix(in srgb, var(--color-text) 84%, transparent);">
         Every build is scoped to the business. We can't quote a number until we meet and understand your users, workflow, and goals.
       </p>
       <div class="blueprint" style="position:relative;">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <header style="display:flex; flex-wrap:wrap; align-items:stretch; border-bottom:1px solid var(--color-divider);">
-          <span style="flex:1; min-width:16ch; padding:12px 24px; font-size:13px; line-height:24px; letter-spacing:0.08em; text-transform:uppercase; font-weight:600;">Pricing — how it works</span>
-          <span style="border-left:1px solid var(--color-divider); padding:12px 24px; font-size:13px; line-height:24px; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:color-mix(in srgb, var(--color-text) 70%, transparent); white-space:nowrap;">Fixed scope</span>
-          <span style="border-left:1px solid var(--color-divider); padding:12px 24px; font-size:13px; line-height:24px; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:color-mix(in srgb, var(--color-text) 70%, transparent); white-space:nowrap;">Sheet 02</span>
+        <header style="border-bottom:1px solid var(--color-divider);">
+          <span style="display:block; padding:12px 24px; font-size:13px; line-height:24px; letter-spacing:0.08em; text-transform:uppercase; font-weight:600;">How it works</span>
         </header>
         <table class="table" style="table-layout:fixed; width:100%;">
-          <colgroup><col style="width:72px;"><col style="width:30%;"><col><col style="width:24%;"></colgroup>
+          <colgroup><col style="width:72px;"><col style="width:32%;"><col></colgroup>
           <tbody>
             <tr>
               <td style="font-size:13px; font-weight:600; letter-spacing:0.08em; color:var(--color-accent-700); padding:14px 0 14px 24px; vertical-align:middle;">01</td>
-              <td style="padding:14px 24px 14px 0; vertical-align:middle;"><span style="font-family:var(--font-heading); font-weight:600; font-size:20px; letter-spacing:0.02em; text-transform:uppercase;">Scoping call</span></td>
+              <td style="padding:14px 24px 14px 0; vertical-align:middle;"><span style="font-family:var(--font-heading); font-weight:600; font-size:20px; letter-spacing:0.02em; text-transform:uppercase;">Discovery call / Demo</span></td>
               <td style="padding:14px 24px 14px 0; vertical-align:middle; font-size:15px; color:color-mix(in srgb, var(--color-text) 80%, transparent);">We map your users, workflow and goals</td>
-              <td style="padding:14px 24px 14px 0; vertical-align:middle; font-size:13px; text-transform:uppercase; letter-spacing:0.04em; color:color-mix(in srgb, var(--color-text) 60%, transparent);">Step one</td>
             </tr>
             <tr>
               <td style="font-size:13px; font-weight:600; letter-spacing:0.08em; color:var(--color-accent-700); padding:14px 0 14px 24px; vertical-align:middle;">02</td>
               <td style="padding:14px 24px 14px 0; vertical-align:middle;"><span style="font-family:var(--font-heading); font-weight:600; font-size:20px; letter-spacing:0.02em; text-transform:uppercase;">Fixed quote</span></td>
               <td style="padding:14px 24px 14px 0; vertical-align:middle; font-size:15px; color:color-mix(in srgb, var(--color-text) 80%, transparent);">One number, scoped to your build</td>
-              <td style="padding:14px 24px 14px 0; vertical-align:middle; font-size:13px; text-transform:uppercase; letter-spacing:0.04em; color:color-mix(in srgb, var(--color-text) 60%, transparent);">No surprises</td>
             </tr>
             <tr>
               <td style="font-size:13px; font-weight:600; letter-spacing:0.08em; color:var(--color-accent-700); padding:14px 0 14px 24px; vertical-align:middle;">03</td>
-              <td style="padding:14px 24px 14px 0; vertical-align:middle;"><span style="font-family:var(--font-heading); font-weight:600; font-size:20px; letter-spacing:0.02em; text-transform:uppercase;">Build &amp; own</span></td>
+              <td style="padding:14px 24px 14px 0; vertical-align:middle;"><span style="font-family:var(--font-heading); font-weight:600; font-size:20px; letter-spacing:0.02em; text-transform:uppercase;">Build and own</span></td>
               <td style="padding:14px 24px 14px 0; vertical-align:middle; font-size:15px; color:color-mix(in srgb, var(--color-text) 80%, transparent);">You keep the code outright</td>
-              <td style="padding:14px 24px 14px 0; vertical-align:middle; font-size:13px; text-transform:uppercase; letter-spacing:0.04em; color:color-mix(in srgb, var(--color-text) 60%, transparent);">Yours</td>
             </tr>
           </tbody>
         </table>
         <div style="border-top:1px solid var(--color-divider); background:var(--color-accent-100); padding:20px 24px; display:flex; gap:8px 20px; align-items:baseline; flex-wrap:wrap;">
           <span style="font-family:var(--font-heading); font-weight:600; font-size:clamp(24px,2.6vw,32px); line-height:1.05; letter-spacing:0.02em; text-transform:uppercase; color:var(--color-accent-900);">From the low thousands</span>
-          <span style="font-size:15px; line-height:1.4; color:color-mix(in srgb, var(--color-text) 80%, transparent);">A professional custom build — not a monthly app subscription.</span>
+          <span style="font-size:15px; line-height:1.4; color:color-mix(in srgb, var(--color-text) 80%, transparent);">A professional custom build, not a monthly app subscription.</span>
         </div>
-        <p style="margin:0; padding:12px 24px; border-top:1px solid var(--color-divider); font-size:13px; line-height:24px; color:color-mix(in srgb, var(--color-text) 70%, transparent);">First step is a scoping call. We map what you need, then give you a fixed number.</p>
+        <p style="margin:0; padding:12px 24px; border-top:1px solid var(--color-divider); font-size:13px; line-height:24px; color:color-mix(in srgb, var(--color-text) 70%, transparent);">First step is a discovery call. We map what you need, then give you a fixed number.</p>
       </div>
       <div style="margin-top:28px;">
-        <a href="#book" class="btn btn-primary" style="text-decoration:none; white-space:nowrap; display:inline-flex; align-items:center; width:auto;">Book a scoping call</a>
-      </div>
-    </section>
-
-    <!-- BOOK / CLOSE -->
-    <section id="book" style="padding:clamp(48px,7vw,96px) 0;">
-      <div class="blueprint" style="position:relative; padding:clamp(32px,5vw,64px); text-align:center; display:flex; flex-direction:column; align-items:center;">
-        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <h2 style="font-family:var(--font-heading); font-weight:600; font-size:clamp(30px,4vw,48px); line-height:1.04; letter-spacing:0.01em; text-transform:uppercase; margin:0; max-width:18ch;">Start with a scoping call</h2>
-        <p style="font-size:16px; line-height:1.5; margin:20px 0 32px; max-width:52ch; color:color-mix(in srgb, var(--color-text) 80%, transparent);">
-          We map what you need and give you a fixed number. No obligation, no subscription trap.
-        </p>
-        <a href="mailto:info@customaicrm.com" class="btn btn-primary" style="text-decoration:none; white-space:nowrap; display:inline-flex; align-items:center; width:auto;">Book an appointment</a>
+        <a href="#book" class="btn btn-primary" style="text-decoration:none; white-space:nowrap; display:inline-flex; align-items:center; width:auto;">Book a Demo</a>
       </div>
     </section>
 
   </div>
+
+  <!-- BOOK / CLOSE -->
+  <section id="book" style="padding:clamp(48px,7vw,96px) 0;">
+    <div style="max-width:1200px; margin:0 auto; padding:0 clamp(20px,5vw,72px);">
+      <div style="text-align:center; max-width:60ch; margin:0 auto 40px;">
+        <h2 style="font-family:var(--font-heading); font-weight:600; font-size:clamp(30px,4vw,48px); line-height:1.04; letter-spacing:0.01em; text-transform:uppercase; margin:0;">Book a demo</h2>
+        <p style="font-size:16px; line-height:1.5; margin:20px 0 0; color:color-mix(in srgb, var(--color-text) 80%, transparent);">
+          We map what you need and give you a fixed number. No obligation, no subscription trap. Pick a time below.
+        </p>
+      </div>
+      <div class="blueprint" style="position:relative; overflow:hidden;">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <iframe
+          src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0QhFd2bKgRXCOlx9wSgXTiH67cL0fjs6wBzSG6SiKVlwqse2wfCyE27R34vOQUkjQNStNU2LuN?gv=true"
+          style="border:0; width:100%; height:640px; display:block;"
+          frameborder="0"
+          title="Book a demo"></iframe>
+      </div>
+      <p style="text-align:center; font-size:14px; margin:20px 0 0; color:color-mix(in srgb, var(--color-text) 70%, transparent);">
+        Prefer email? <a href="mailto:info@customaicrm.com" style="color:var(--color-accent-700);">info@customaicrm.com</a>
+      </p>
+    </div>
+  </section>
 
   <footer style="background:var(--color-accent-900); color:color-mix(in srgb, var(--color-bg) 78%, transparent); padding:28px clamp(20px,5vw,72px); text-align:center; font-size:14px; letter-spacing:0.02em;">
     Custom AI CRM, LLC · <a href="mailto:info@customaicrm.com" style="color:var(--color-accent-300);">info@customaicrm.com</a>
@@ -370,6 +428,17 @@
 
 </div>
 </x-dc>
+<script>
+  function dcIndTab(key, btn) {
+    var panels = document.querySelectorAll('.ind-panel');
+    for (var i = 0; i < panels.length; i++) panels[i].classList.remove('is-active');
+    var tabs = document.querySelectorAll('.ind-tab');
+    for (var j = 0; j < tabs.length; j++) tabs[j].classList.remove('is-active');
+    var panel = document.getElementById('ind-' + key);
+    if (panel) panel.classList.add('is-active');
+    if (btn) btn.classList.add('is-active');
+  }
+</script>
 <script type="text/x-dc" data-dc-script data-props="{
   &quot;featureColumns&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;3&quot;,&quot;2&quot;],&quot;default&quot;:&quot;3&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Layout&quot;,&quot;subtitle&quot;:&quot;Columns in the capabilities grid&quot;},
   &quot;sectionNumbers&quot;: {&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Layout&quot;,&quot;subtitle&quot;:&quot;Show the 01· 02· section numbering&quot;}
@@ -384,6 +453,7 @@ class Component extends DCLogic {
       n3: nums ? '03 · ' : '',
       n4: nums ? '04 · ' : '',
       n5: nums ? '05 · ' : '',
+      n6: nums ? '06 · ' : '',
     };
   }
 }
