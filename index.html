@@ -16,6 +16,8 @@
   a { color: var(--color-accent-700); text-decoration: none; }
   a:hover { color: var(--color-accent-900); }
   ::selection { background: color-mix(in srgb, var(--color-accent) 28%, transparent); }
+  /* Anchored sections clear the sticky nav instead of hiding under it */
+  #overview, #capabilities, #industries, #pricing, #book { scroll-margin-top: 120px; }
   .ind-tab.is-active { background: var(--color-accent-900); color: var(--color-bg); }
   .ind-panel { display: none; }
   .ind-panel.is-active { display: block; }
@@ -25,7 +27,7 @@
 <div style="font-family: var(--font-body); color: var(--color-text);">
 
   <nav style="display:flex; align-items:center; gap:24px; padding:16px clamp(20px,5vw,72px); border-bottom:1px solid var(--color-divider); position:sticky; top:0; background:color-mix(in srgb, var(--color-bg) 88%, transparent); backdrop-filter:blur(8px); z-index:20;">
-    <span style="margin-right:auto; display:inline-flex; align-items:center;"><img src="logo.png" alt="Custom AI CRM" style="height:72px; width:auto; display:block;"></span>
+    <span style="margin-right:auto; display:inline-flex; align-items:center;"><img src="logo.png" alt="Custom AI CRM" style="height:96px; width:auto; display:block;"></span>
     <a href="#overview" style="font-size:14px; text-transform:uppercase; letter-spacing:0.06em; color:var(--color-text);">Overview</a>
     <a href="#capabilities" style="font-size:14px; text-transform:uppercase; letter-spacing:0.06em; color:var(--color-text);">Capabilities</a>
     <a href="#industries" style="font-size:14px; text-transform:uppercase; letter-spacing:0.06em; color:var(--color-text);">Industries</a>
@@ -36,7 +38,7 @@
   <div style="max-width:1200px; margin:0 auto; padding:0 clamp(20px,5vw,72px);">
 
     <!-- HERO: split, copy left, video right -->
-    <section style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(28px,4vw,56px); align-items:center; padding:clamp(32px,5vw,64px) 0 clamp(40px,6vw,72px);">
+    <section style="display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:clamp(28px,4vw,56px); align-items:center; padding:clamp(32px,5vw,64px) 0 clamp(40px,6vw,72px);">
       <div>
         <h1 style="font-family:var(--font-heading); font-weight:600; text-transform:uppercase; letter-spacing:0.01em; font-size:clamp(40px,5.2vw,72px); line-height:1.02; margin:0; max-width:16ch;">
           <span style="display:block;">Your CRM.</span>
@@ -60,7 +62,7 @@
           allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
           allowfullscreen="true"
           title="Custom AI CRM product tour"></iframe>
-        <button type="button" onclick="document.getElementById('video-sound-modal').style.display='grid'" style="position:absolute; top:14px; left:14px; z-index:2; display:inline-flex; align-items:center; gap:8px; padding:10px 16px; font-family:var(--font-heading); font-weight:600; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-bg); background:var(--color-accent); border:1px solid var(--color-bg); border-radius:0; cursor:pointer; box-shadow:var(--shadow-md);">
+        <button id="watch-sound-btn" type="button" style="position:absolute; top:14px; left:14px; z-index:2; display:inline-flex; align-items:center; gap:8px; padding:10px 16px; font-family:var(--font-heading); font-weight:600; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-bg); background:var(--color-accent); border:1px solid var(--color-bg); border-radius:0; cursor:pointer; box-shadow:var(--shadow-md);">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
           Watch with Sound
         </button>
@@ -68,20 +70,21 @@
     </section>
 
     <!-- WATCH WITH SOUND MODAL -->
-    <div id="video-sound-modal" style="display:none; position:fixed; inset:0; z-index:100; place-items:center; padding:clamp(16px,4vw,48px); background:color-mix(in srgb, var(--color-accent-900) 70%, transparent);" onclick="if(event.target===this){this.style.display='none'; var p=document.getElementById('video-sound-player'); p.src=p.src;}">
+    <div id="video-sound-modal" style="display:none; position:fixed; inset:0; z-index:100; place-items:center; padding:clamp(16px,4vw,48px); background:color-mix(in srgb, var(--color-accent-900) 70%, transparent);">
       <div style="width:min(1000px,100%);">
         <div class="blueprint" style="position:relative; aspect-ratio:16/9; width:100%; background:var(--color-accent-900); overflow:hidden;">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
           <iframe
             id="video-sound-player"
-            src="https://customer-ezexebztyh5jp4ml.cloudflarestream.com/8ded3046073331cd5ef6857ae2bcffc0/iframe?autoplay=true&preload=auto"
+            data-src="https://customer-ezexebztyh5jp4ml.cloudflarestream.com/8ded3046073331cd5ef6857ae2bcffc0/iframe?autoplay=true&preload=auto"
+            src="about:blank"
             style="position:absolute; inset:0; width:100%; height:100%; border:0;"
             allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
             allowfullscreen="true"
             title="Custom AI CRM product tour with sound"></iframe>
         </div>
         <div style="text-align:right; margin-top:12px;">
-          <button type="button" onclick="document.getElementById('video-sound-modal').style.display='none'; var p=document.getElementById('video-sound-player'); p.src=p.src;" class="btn btn-primary" style="width:auto;">Close</button>
+          <button id="video-sound-close" type="button" class="btn btn-primary" style="width:auto;">Close</button>
         </div>
       </div>
     </div>
@@ -161,12 +164,12 @@
         </div>
       </div>
       <div style="margin-top:32px;">
-        <button type="button" onclick="document.getElementById('everything-modal').style.display='grid'" class="btn btn-secondary" style="cursor:pointer; white-space:nowrap; display:inline-flex; align-items:center; width:auto;">See everything it does</button>
+        <button id="everything-open" type="button" class="btn btn-secondary" style="cursor:pointer; white-space:nowrap; display:inline-flex; align-items:center; width:auto;">See everything it does</button>
       </div>
     </section>
 
     <!-- EVERYTHING MODAL -->
-    <div id="everything-modal" style="display:none; position:fixed; inset:0; z-index:100; place-items:start center; padding:clamp(16px,4vw,48px); overflow-y:auto; background:color-mix(in srgb, var(--color-accent-900) 70%, transparent);" onclick="if(event.target===this){this.style.display='none';}">
+    <div id="everything-modal" style="display:none; position:fixed; inset:0; z-index:100; place-items:start center; padding:clamp(16px,4vw,48px); overflow-y:auto; background:color-mix(in srgb, var(--color-accent-900) 70%, transparent);">
       <div class="blueprint" style="position:relative; width:min(920px,100%); background:var(--color-bg); padding:clamp(24px,4vw,44px); margin:auto;">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
         <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-bottom:8px;">
@@ -174,7 +177,7 @@
             <span style="font-family:var(--font-body); font-size:13px; line-height:1; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-700); display:block; margin-bottom:10px;">Full capability list</span>
             <h2 style="font-family:var(--font-heading); font-weight:600; font-size:clamp(26px,3.4vw,38px); line-height:1.04; letter-spacing:0.01em; text-transform:uppercase; margin:0;">Everything the AI does</h2>
           </div>
-          <button type="button" onclick="document.getElementById('everything-modal').style.display='none';" aria-label="Close" style="flex:0 0 auto; width:40px; height:40px; display:inline-flex; align-items:center; justify-content:center; background:transparent; border:1px solid var(--color-divider); border-radius:0; cursor:pointer; color:var(--color-text);">
+          <button id="everything-close" type="button" aria-label="Close" style="flex:0 0 auto; width:40px; height:40px; display:inline-flex; align-items:center; justify-content:center; background:transparent; border:1px solid var(--color-divider); border-radius:0; cursor:pointer; color:var(--color-text);">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
           </button>
         </div>
@@ -253,9 +256,9 @@
         The core system is the same. The data model, pipeline stages, and templates are shaped to how your field actually works.
       </p>
       <div role="tablist" style="display:flex; flex-wrap:wrap; gap:0; border:1px solid var(--color-divider); width:fit-content; margin-bottom:28px;">
-        <button type="button" class="ind-tab is-active" onclick="dcIndTab('re', this)" style="font-family:var(--font-heading); font-weight:600; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; padding:10px 22px; background:transparent; border:0; cursor:pointer; color:inherit;">Real Estate</button>
-        <button type="button" class="ind-tab" onclick="dcIndTab('ins', this)" style="font-family:var(--font-heading); font-weight:600; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; padding:10px 22px; background:transparent; border:0; border-left:1px solid var(--color-divider); cursor:pointer; color:inherit;">Insurance</button>
-        <button type="button" class="ind-tab" onclick="dcIndTab('law', this)" style="font-family:var(--font-heading); font-weight:600; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; padding:10px 22px; background:transparent; border:0; border-left:1px solid var(--color-divider); cursor:pointer; color:inherit;">Law</button>
+        <button type="button" class="ind-tab is-active" data-ind="re" style="font-family:var(--font-heading); font-weight:600; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; padding:10px 22px; background:transparent; border:0; cursor:pointer; color:inherit;">Real Estate</button>
+        <button type="button" class="ind-tab" data-ind="ins" style="font-family:var(--font-heading); font-weight:600; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; padding:10px 22px; background:transparent; border:0; border-left:1px solid var(--color-divider); cursor:pointer; color:inherit;">Insurance</button>
+        <button type="button" class="ind-tab" data-ind="law" style="font-family:var(--font-heading); font-weight:600; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; padding:10px 22px; background:transparent; border:0; border-left:1px solid var(--color-divider); cursor:pointer; color:inherit;">Law</button>
       </div>
 
       <div id="ind-re" class="ind-panel is-active">
@@ -429,15 +432,58 @@
 </div>
 </x-dc>
 <script>
-  function dcIndTab(key, btn) {
-    var panels = document.querySelectorAll('.ind-panel');
-    for (var i = 0; i < panels.length; i++) panels[i].classList.remove('is-active');
-    var tabs = document.querySelectorAll('.ind-tab');
-    for (var j = 0; j < tabs.length; j++) tabs[j].classList.remove('is-active');
-    var panel = document.getElementById('ind-' + key);
-    if (panel) panel.classList.add('is-active');
-    if (btn) btn.classList.add('is-active');
-  }
+  (function () {
+    function init() {
+      // --- Watch with Sound modal ---
+      var soundModal = document.getElementById('video-sound-modal');
+      var soundPlayer = document.getElementById('video-sound-player');
+      var watchBtn = document.getElementById('watch-sound-btn');
+      var soundClose = document.getElementById('video-sound-close');
+      function openSound() {
+        if (soundPlayer && soundPlayer.dataset.src) soundPlayer.src = soundPlayer.dataset.src;
+        if (soundModal) soundModal.style.display = 'grid';
+      }
+      function closeSound() {
+        if (soundModal) soundModal.style.display = 'none';
+        if (soundPlayer) soundPlayer.src = 'about:blank'; // stop audio
+      }
+      if (watchBtn) watchBtn.addEventListener('click', openSound);
+      if (soundClose) soundClose.addEventListener('click', closeSound);
+      if (soundModal) soundModal.addEventListener('click', function (e) { if (e.target === soundModal) closeSound(); });
+
+      // --- Everything modal ---
+      var everModal = document.getElementById('everything-modal');
+      var everOpen = document.getElementById('everything-open');
+      var everClose = document.getElementById('everything-close');
+      if (everOpen) everOpen.addEventListener('click', function () { if (everModal) everModal.style.display = 'grid'; });
+      if (everClose) everClose.addEventListener('click', function () { if (everModal) everModal.style.display = 'none'; });
+      if (everModal) everModal.addEventListener('click', function (e) { if (e.target === everModal) everModal.style.display = 'none'; });
+
+      // --- Escape closes any open modal ---
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') { closeSound(); if (everModal) everModal.style.display = 'none'; }
+      });
+
+      // --- Industry tabs ---
+      var tabs = document.querySelectorAll('.ind-tab');
+      Array.prototype.forEach.call(tabs, function (tab) {
+        tab.addEventListener('click', function () {
+          var key = tab.getAttribute('data-ind');
+          var panels = document.querySelectorAll('.ind-panel');
+          Array.prototype.forEach.call(panels, function (p) { p.classList.remove('is-active'); });
+          Array.prototype.forEach.call(tabs, function (t) { t.classList.remove('is-active'); });
+          var panel = document.getElementById('ind-' + key);
+          if (panel) panel.classList.add('is-active');
+          tab.classList.add('is-active');
+        });
+      });
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
 </script>
 <script type="text/x-dc" data-dc-script data-props="{
   &quot;featureColumns&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;3&quot;,&quot;2&quot;],&quot;default&quot;:&quot;3&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Layout&quot;,&quot;subtitle&quot;:&quot;Columns in the capabilities grid&quot;},
