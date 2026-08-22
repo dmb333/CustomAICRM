@@ -167,12 +167,12 @@
         </div>
       </div>
       <div style="margin-top:32px;">
-        <button id="everything-open" type="button" class="btn btn-secondary" style="cursor:pointer; white-space:nowrap; display:inline-flex; align-items:center; width:auto;">See everything it does</button>
+        <button id="everything-open" type="button" onclick="document.getElementById('everything-modal').style.display='grid';" class="btn btn-secondary" style="cursor:pointer; white-space:nowrap; display:inline-flex; align-items:center; width:auto;">See everything it does</button>
       </div>
     </section>
 
     <!-- EVERYTHING MODAL -->
-    <div id="everything-modal" style="display:none; position:fixed; inset:0; z-index:100; place-items:start center; padding:clamp(16px,4vw,48px); overflow-y:auto; background:color-mix(in srgb, var(--color-accent-900) 70%, transparent);">
+    <div id="everything-modal" onclick="if(event.target===this){this.style.display='none';}" style="display:none; position:fixed; inset:0; z-index:100; place-items:start center; padding:clamp(16px,4vw,48px); overflow-y:auto; background:color-mix(in srgb, var(--color-accent-900) 70%, transparent);">
       <div class="blueprint" style="position:relative; width:min(920px,100%); background:var(--color-bg); padding:clamp(24px,4vw,44px); margin:auto;">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
         <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-bottom:8px;">
@@ -180,7 +180,7 @@
             <span style="font-family:var(--font-body); font-size:13px; line-height:1; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-700); display:block; margin-bottom:10px;">Full capability list</span>
             <h2 style="font-family:var(--font-heading); font-weight:600; font-size:clamp(26px,3.4vw,38px); line-height:1.04; letter-spacing:0.01em; text-transform:uppercase; margin:0;">Everything the AI does</h2>
           </div>
-          <button id="everything-close" type="button" aria-label="Close" style="flex:0 0 auto; width:40px; height:40px; display:inline-flex; align-items:center; justify-content:center; background:transparent; border:1px solid var(--color-divider); border-radius:0; cursor:pointer; color:var(--color-text);">
+          <button id="everything-close" type="button" onclick="document.getElementById('everything-modal').style.display='none';" aria-label="Close" style="flex:0 0 auto; width:40px; height:40px; display:inline-flex; align-items:center; justify-content:center; background:transparent; border:1px solid var(--color-divider); border-radius:0; cursor:pointer; color:var(--color-text);">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
           </button>
         </div>
@@ -259,15 +259,15 @@
         The core system is the same. The data model, pipeline stages, and templates are shaped to how your field actually works.
       </p>
       <div role="tablist" style="display:flex; flex-wrap:wrap; gap:0; border:1px solid var(--color-divider); width:fit-content; margin-bottom:28px;">
-        <button type="button" class="ind-tab is-active" data-ind="re" style="font-family:var(--font-heading); font-weight:600; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; padding:10px 22px; background:transparent; border:0; cursor:pointer; color:inherit;">Real Estate</button>
-        <button type="button" class="ind-tab" data-ind="ins" style="font-family:var(--font-heading); font-weight:600; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; padding:10px 22px; background:transparent; border:0; border-left:1px solid var(--color-divider); cursor:pointer; color:inherit;">Insurance</button>
-        <button type="button" class="ind-tab" data-ind="law" style="font-family:var(--font-heading); font-weight:600; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; padding:10px 22px; background:transparent; border:0; border-left:1px solid var(--color-divider); cursor:pointer; color:inherit;">Law</button>
+        <button type="button" class="ind-tab is-active" data-ind="re" onclick="var ks=['re','ins','law'];for(var i=0;i<ks.length;i++){document.getElementById('ind-'+ks[i]).classList.remove('is-active');}var ts=document.querySelectorAll('.ind-tab');for(var j=0;j<ts.length;j++){ts[j].classList.remove('is-active');}document.getElementById('ind-re').classList.add('is-active');this.classList.add('is-active');" style="font-family:var(--font-heading); font-weight:600; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; padding:10px 22px; background:transparent; border:0; cursor:pointer; color:inherit;">Real Estate</button>
+        <button type="button" class="ind-tab" data-ind="ins" onclick="var ks=['re','ins','law'];for(var i=0;i<ks.length;i++){document.getElementById('ind-'+ks[i]).classList.remove('is-active');}var ts=document.querySelectorAll('.ind-tab');for(var j=0;j<ts.length;j++){ts[j].classList.remove('is-active');}document.getElementById('ind-ins').classList.add('is-active');this.classList.add('is-active');" style="font-family:var(--font-heading); font-weight:600; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; padding:10px 22px; background:transparent; border:0; border-left:1px solid var(--color-divider); cursor:pointer; color:inherit;">Insurance</button>
+        <button type="button" class="ind-tab" data-ind="law" onclick="var ks=['re','ins','law'];for(var i=0;i<ks.length;i++){document.getElementById('ind-'+ks[i]).classList.remove('is-active');}var ts=document.querySelectorAll('.ind-tab');for(var j=0;j<ts.length;j++){ts[j].classList.remove('is-active');}document.getElementById('ind-law').classList.add('is-active');this.classList.add('is-active');" style="font-family:var(--font-heading); font-weight:600; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; padding:10px 22px; background:transparent; border:0; border-left:1px solid var(--color-divider); cursor:pointer; color:inherit;">Law</button>
       </div>
 
       <div id="ind-re" class="ind-panel is-active">
         <div class="blueprint" style="position:relative; padding:clamp(24px,3vw,36px);">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-          <h3 style="font-family:var(--font-heading); font-weight:600; font-size:clamp(22px,2.4vw,28px); letter-spacing:0.02em; text-transform:uppercase; margin:0;">Built for real estate</h3>
+          <h3 style="font-family:var(--font-heading); font-weight:600; font-size:clamp(22px,2.4vw,28px); letter-spacing:0.02em; text-transform:uppercase; margin:0;">Built for sales</h3>
           <p style="font-size:15px; line-height:1.5; margin:14px 0 0; max-width:64ch; color:color-mix(in srgb, var(--color-text) 80%, transparent);">Buyers, sellers, leads and past clients tracked through a pipeline that mirrors a real transaction, from first inquiry to closing and beyond.</p>
           <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:16px 32px; margin-top:24px;">
             <div style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:color-mix(in srgb, var(--color-text) 82%, transparent);"><span style="color:var(--color-accent-700); font-weight:600;">+</span><span>Pipeline stages from lead to nurture, showing, offer, under contract, and closed</span></div>
