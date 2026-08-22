@@ -1,16 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
-</head>
-<body>
-<x-dc>
-<helmet>
+<title>Custom AI CRM</title>
 <link rel="stylesheet" href="_ds/industry-12fe2ddf-c1c7-4723-980f-1f5254f3c698/styles.css">
-<script src="_ds/industry-12fe2ddf-c1c7-4723-980f-1f5254f3c698/_ds_bundle.js"></script>
-<script src="./image-slot.js"></script>
 <style>
   body { margin: 0; text-wrap: pretty; background: var(--color-bg); }
   a { color: var(--color-accent-700); text-decoration: none; }
@@ -24,7 +18,9 @@
   html { scroll-behavior: smooth; }
   section[id], span#top { scroll-margin-top: 120px; }
 </style>
-</helmet>
+</head>
+<body>
+
 
 <div style="font-family: var(--font-body); color: var(--color-text);">
 
@@ -65,7 +61,7 @@
           allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
           allowfullscreen="true"
           title="Custom AI CRM product tour"></iframe>
-        <button id="watch-sound-btn" type="button" onclick="var m=document.getElementById('video-sound-modal'),p=document.getElementById('video-sound-player'); if(p&&p.dataset.src){p.src=p.dataset.src;} if(m){m.style.display='grid';}" style="position:absolute; top:14px; left:14px; z-index:2; display:inline-flex; align-items:center; gap:8px; padding:10px 16px; font-family:var(--font-heading); font-weight:600; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-bg); background:var(--color-accent); border:1px solid var(--color-bg); border-radius:0; cursor:pointer; box-shadow:var(--shadow-md);">
+        <button id="watch-sound-btn" type="button" style="position:absolute; top:14px; left:14px; z-index:2; display:inline-flex; align-items:center; gap:8px; padding:10px 16px; font-family:var(--font-heading); font-weight:600; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-bg); background:var(--color-accent); border:1px solid var(--color-bg); border-radius:0; cursor:pointer; box-shadow:var(--shadow-md);">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
           Watch with Sound
         </button>
@@ -73,7 +69,7 @@
     </section>
 
     <!-- WATCH WITH SOUND MODAL -->
-    <div id="video-sound-modal" onclick="if(event.target===this){this.style.display='none'; var p=document.getElementById('video-sound-player'); if(p){p.src='about:blank';}}" style="display:none; position:fixed; inset:0; z-index:100; place-items:center; padding:clamp(16px,4vw,48px); background:color-mix(in srgb, var(--color-accent-900) 70%, transparent);">
+    <div id="video-sound-modal" style="display:none; position:fixed; inset:0; z-index:100; place-items:center; padding:clamp(16px,4vw,48px); background:color-mix(in srgb, var(--color-accent-900) 70%, transparent);">
       <div style="width:min(1000px,100%);">
         <div class="blueprint" style="position:relative; aspect-ratio:16/9; width:100%; background:var(--color-accent-900); overflow:hidden;">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
@@ -87,14 +83,14 @@
             title="Custom AI CRM product tour with sound"></iframe>
         </div>
         <div style="text-align:right; margin-top:12px;">
-          <button id="video-sound-close" type="button" onclick="var m=document.getElementById('video-sound-modal'),p=document.getElementById('video-sound-player'); if(m){m.style.display='none';} if(p){p.src='about:blank';}" class="btn btn-primary" style="width:auto;">Close</button>
+          <button id="video-sound-close" type="button" class="btn btn-primary" style="width:auto;">Close</button>
         </div>
       </div>
     </div>
 
     <!-- WHAT THIS IS -->
     <section id="overview" style="padding:clamp(40px,6vw,72px) 0 clamp(24px,4vw,48px);">
-      <span style="font-family:var(--font-body); font-size:13px; line-height:1; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-700); display:block; margin-bottom:12px;">{{ n1 }}What this is</span>
+      <span style="font-family:var(--font-body); font-size:13px; line-height:1; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-700); display:block; margin-bottom:12px;">01 · What this is</span>
       <hr style="height:1px; border:0; background:var(--color-divider); margin:0 0 28px;">
       <div class="blueprint" style="position:relative;">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
@@ -132,9 +128,9 @@
 
     <!-- WHAT THE AI DOES -->
     <section id="capabilities" style="padding:clamp(40px,6vw,72px) 0 clamp(24px,4vw,48px);">
-      <span style="font-family:var(--font-body); font-size:13px; line-height:1; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-700); display:block; margin-bottom:12px;">{{ n2 }}What the AI does</span>
+      <span style="font-family:var(--font-body); font-size:13px; line-height:1; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-700); display:block; margin-bottom:12px;">02 · What the AI does</span>
       <hr style="height:1px; border:0; background:var(--color-divider); margin:0 0 32px;">
-      <div style="display:grid; grid-template-columns:repeat({{ featureCols }}, minmax(0,1fr)); gap:clamp(20px,3vw,40px);">
+      <div style="display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:clamp(20px,3vw,40px);">
         <div class="blueprint" style="position:relative; padding:24px;">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
           <h3 style="font-family:var(--font-heading); font-weight:600; font-size:21px; line-height:1.1; letter-spacing:0.02em; text-transform:uppercase; margin:0;">Scores and ranks leads</h3>
@@ -167,12 +163,12 @@
         </div>
       </div>
       <div style="margin-top:32px;">
-        <button id="everything-open" type="button" onclick="document.getElementById('everything-modal').style.display='grid';" class="btn btn-secondary" style="cursor:pointer; white-space:nowrap; display:inline-flex; align-items:center; width:auto;">See everything it does</button>
+        <button id="everything-open" type="button" class="btn btn-secondary" style="cursor:pointer; white-space:nowrap; display:inline-flex; align-items:center; width:auto;">See everything it does</button>
       </div>
     </section>
 
     <!-- EVERYTHING MODAL -->
-    <div id="everything-modal" onclick="if(event.target===this){this.style.display='none';}" style="display:none; position:fixed; inset:0; z-index:100; place-items:start center; padding:clamp(16px,4vw,48px); overflow-y:auto; background:color-mix(in srgb, var(--color-accent-900) 70%, transparent);">
+    <div id="everything-modal" style="display:none; position:fixed; inset:0; z-index:100; place-items:start center; padding:clamp(16px,4vw,48px); overflow-y:auto; background:color-mix(in srgb, var(--color-accent-900) 70%, transparent);">
       <div class="blueprint" style="position:relative; width:min(920px,100%); background:var(--color-bg); padding:clamp(24px,4vw,44px); margin:auto;">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
         <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-bottom:8px;">
@@ -180,7 +176,7 @@
             <span style="font-family:var(--font-body); font-size:13px; line-height:1; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-700); display:block; margin-bottom:10px;">Full capability list</span>
             <h2 style="font-family:var(--font-heading); font-weight:600; font-size:clamp(26px,3.4vw,38px); line-height:1.04; letter-spacing:0.01em; text-transform:uppercase; margin:0;">Everything the AI does</h2>
           </div>
-          <button id="everything-close" type="button" onclick="document.getElementById('everything-modal').style.display='none';" aria-label="Close" style="flex:0 0 auto; width:40px; height:40px; display:inline-flex; align-items:center; justify-content:center; background:transparent; border:1px solid var(--color-divider); border-radius:0; cursor:pointer; color:var(--color-text);">
+          <button id="everything-close" type="button" aria-label="Close" style="flex:0 0 auto; width:40px; height:40px; display:inline-flex; align-items:center; justify-content:center; background:transparent; border:1px solid var(--color-divider); border-radius:0; cursor:pointer; color:var(--color-text);">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
           </button>
         </div>
@@ -253,15 +249,15 @@
 
     <!-- INDUSTRIES: tabbed -->
     <section id="industries" style="padding:clamp(40px,6vw,72px) 0 clamp(24px,4vw,48px);">
-      <span style="font-family:var(--font-body); font-size:13px; line-height:1; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-700); display:block; margin-bottom:12px;">{{ n3 }}Industries</span>
+      <span style="font-family:var(--font-body); font-size:13px; line-height:1; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-700); display:block; margin-bottom:12px;">03 · Industries</span>
       <hr style="height:1px; border:0; background:var(--color-divider); margin:0 0 20px;">
       <p style="font-size:clamp(16px,1.3vw,18px); line-height:1.5; max-width:60ch; margin:0 0 28px; color:color-mix(in srgb, var(--color-text) 82%, transparent);">
         The core system is the same. The data model, pipeline stages, and templates are shaped to how your field actually works.
       </p>
       <div role="tablist" style="display:flex; flex-wrap:wrap; gap:0; border:1px solid var(--color-divider); width:fit-content; margin-bottom:28px;">
-        <button type="button" class="ind-tab is-active" data-ind="re" onclick="var ks=['re','ins','law'];for(var i=0;i<ks.length;i++){document.getElementById('ind-'+ks[i]).classList.remove('is-active');}var ts=document.querySelectorAll('.ind-tab');for(var j=0;j<ts.length;j++){ts[j].classList.remove('is-active');}document.getElementById('ind-re').classList.add('is-active');this.classList.add('is-active');" style="font-family:var(--font-heading); font-weight:600; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; padding:10px 22px; background:transparent; border:0; cursor:pointer; color:inherit;">Real Estate</button>
-        <button type="button" class="ind-tab" data-ind="ins" onclick="var ks=['re','ins','law'];for(var i=0;i<ks.length;i++){document.getElementById('ind-'+ks[i]).classList.remove('is-active');}var ts=document.querySelectorAll('.ind-tab');for(var j=0;j<ts.length;j++){ts[j].classList.remove('is-active');}document.getElementById('ind-ins').classList.add('is-active');this.classList.add('is-active');" style="font-family:var(--font-heading); font-weight:600; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; padding:10px 22px; background:transparent; border:0; border-left:1px solid var(--color-divider); cursor:pointer; color:inherit;">Insurance</button>
-        <button type="button" class="ind-tab" data-ind="law" onclick="var ks=['re','ins','law'];for(var i=0;i<ks.length;i++){document.getElementById('ind-'+ks[i]).classList.remove('is-active');}var ts=document.querySelectorAll('.ind-tab');for(var j=0;j<ts.length;j++){ts[j].classList.remove('is-active');}document.getElementById('ind-law').classList.add('is-active');this.classList.add('is-active');" style="font-family:var(--font-heading); font-weight:600; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; padding:10px 22px; background:transparent; border:0; border-left:1px solid var(--color-divider); cursor:pointer; color:inherit;">Law</button>
+        <button type="button" class="ind-tab is-active" data-ind="re" style="font-family:var(--font-heading); font-weight:600; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; padding:10px 22px; background:transparent; border:0; cursor:pointer; color:inherit;">Real Estate</button>
+        <button type="button" class="ind-tab" data-ind="ins" style="font-family:var(--font-heading); font-weight:600; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; padding:10px 22px; background:transparent; border:0; border-left:1px solid var(--color-divider); cursor:pointer; color:inherit;">Insurance</button>
+        <button type="button" class="ind-tab" data-ind="law" style="font-family:var(--font-heading); font-weight:600; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; padding:10px 22px; background:transparent; border:0; border-left:1px solid var(--color-divider); cursor:pointer; color:inherit;">Law</button>
       </div>
 
       <div id="ind-re" class="ind-panel is-active">
@@ -312,7 +308,7 @@
   <!-- YOU OWN IT: steel field -->
   <section id="ownership" style="background:var(--color-accent-900); color:var(--color-bg); padding:clamp(56px,8vw,96px) 0; margin-top:clamp(24px,4vw,48px);">
     <div style="max-width:1200px; margin:0 auto; padding:0 clamp(20px,5vw,72px);">
-      <span style="font-family:var(--font-body); font-size:13px; line-height:1; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-300); display:block; margin-bottom:16px;">{{ n4 }}Ownership</span>
+      <span style="font-family:var(--font-body); font-size:13px; line-height:1; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-300); display:block; margin-bottom:16px;">04 · Ownership</span>
       <h2 style="font-family:var(--font-heading); font-weight:600; font-size:clamp(32px,4.5vw,52px); line-height:1.04; letter-spacing:0.01em; text-transform:uppercase; margin:0; max-width:14ch;">You own it</h2>
       <p style="font-size:clamp(16px,1.3vw,18px); line-height:1.5; max-width:56ch; margin:20px 0 40px; color:color-mix(in srgb, var(--color-bg) 82%, transparent);">
         When you subscribe to CRM software, you pay every month forever and own nothing. Cancel, and you lose the tool and often your data. With a custom build, you own the code.
@@ -347,7 +343,7 @@
     <!-- YOUR DATA COMES WITH YOU: split with image -->
     <section style="display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:clamp(24px,5vw,72px); align-items:center; padding:clamp(48px,7vw,96px) 0;">
       <div>
-        <span style="font-family:var(--font-body); font-size:13px; line-height:1; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-700); display:block; margin-bottom:12px;">{{ n5 }}Migration</span>
+        <span style="font-family:var(--font-body); font-size:13px; line-height:1; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-700); display:block; margin-bottom:12px;">05 · Migration</span>
         <hr style="height:1px; border:0; background:var(--color-divider); margin:0 0 24px;">
         <h2 style="font-family:var(--font-heading); font-weight:600; font-size:clamp(28px,3.4vw,40px); line-height:1.06; letter-spacing:0.02em; text-transform:uppercase; margin:0; max-width:16ch;">Your data comes with you</h2>
         <p style="font-size:16px; line-height:1.5; margin:20px 0 0; max-width:48ch; color:color-mix(in srgb, var(--color-text) 80%, transparent);">
@@ -362,7 +358,7 @@
 
     <!-- PRICING -->
     <section id="pricing" style="padding:clamp(40px,6vw,72px) 0 clamp(40px,6vw,72px); border-top:1px solid var(--color-divider);">
-      <span style="font-family:var(--font-body); font-size:13px; line-height:1; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-700); display:block; margin-bottom:12px;">{{ n6 }}Pricing</span>
+      <span style="font-family:var(--font-body); font-size:13px; line-height:1; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:var(--color-accent-700); display:block; margin-bottom:12px;">06 · Pricing</span>
       <hr style="height:1px; border:0; background:var(--color-divider); margin:0 0 32px;">
       <p style="font-size:clamp(17px,1.4vw,19px); line-height:1.5; margin:0 0 32px; max-width:60ch; color:color-mix(in srgb, var(--color-text) 84%, transparent);">
         Every build is scoped to the business. We can't quote a number until we meet and understand your users, workflow, and goals.
@@ -433,7 +429,7 @@
   </footer>
 
 </div>
-</x-dc>
+
 <script>
   (function () {
     function init() {
@@ -487,25 +483,6 @@
       init();
     }
   })();
-</script>
-<script type="text/x-dc" data-dc-script data-props="{
-  &quot;featureColumns&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;3&quot;,&quot;2&quot;],&quot;default&quot;:&quot;3&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Layout&quot;,&quot;subtitle&quot;:&quot;Columns in the capabilities grid&quot;},
-  &quot;sectionNumbers&quot;: {&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Layout&quot;,&quot;subtitle&quot;:&quot;Show the 01· 02· section numbering&quot;}
-}">
-class Component extends DCLogic {
-  renderVals() {
-    const nums = this.props.sectionNumbers ?? true;
-    return {
-      featureCols: this.props.featureColumns ?? '3',
-      n1: nums ? '01 · ' : '',
-      n2: nums ? '02 · ' : '',
-      n3: nums ? '03 · ' : '',
-      n4: nums ? '04 · ' : '',
-      n5: nums ? '05 · ' : '',
-      n6: nums ? '06 · ' : '',
-    };
-  }
-}
 </script>
 </body>
 </html>
