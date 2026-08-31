@@ -150,6 +150,27 @@
   .aidoes .imgframe{min-height:360px;border-radius:var(--radius);border:1px solid var(--line);background:linear-gradient(135deg,var(--panel),var(--apricot-soft));display:grid;place-items:center;overflow:hidden}
   .aidoes .imgframe .ph{color:var(--pine);opacity:.4;font-size:2.2rem}
   .aidoes .imgframe img{width:100%;height:100%;object-fit:cover;display:block}
+  .aidoes-extra{display:block!important;margin-top:56px}
+  .capgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+  @media(max-width:820px){.capgrid{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.capgrid{grid-template-columns:1fr}}
+  .capgrid .cap{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:24px 22px}
+  .capgrid .cap h3{font-size:1.05rem;margin-bottom:8px}
+  .capgrid .cap p{font-size:.92rem;line-height:1.55}
+
+  /* Everything modal */
+  .everything-modal{position:fixed;inset:0;z-index:100;display:none;align-items:flex-start;justify-content:center;padding:clamp(16px,4vw,48px);overflow-y:auto;background:rgba(8,12,18,.72);backdrop-filter:blur(4px)}
+  .everything-modal.open{display:flex}
+  .everything-panel{position:relative;width:min(920px,100%);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(24px,4vw,44px);margin:auto;box-shadow:0 40px 80px -24px rgb(0 0 0 / .5)}
+  .everything-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+  .everything-head h2{font-size:clamp(1.6rem,3vw,2.1rem);margin-top:6px}
+  .everything-close{flex:none;width:40px;height:40px;border-radius:50%;border:none;background:var(--ink);color:var(--paper);font-size:1.1rem;line-height:1;cursor:pointer;display:grid;place-items:center}
+  .everything-close:hover{background:var(--pine)}
+  .capcats{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:clamp(20px,3vw,34px);margin-top:30px}
+  .capcats h3{font-size:1rem;text-transform:none;font-family:'Figtree',sans-serif;font-weight:700;letter-spacing:0}
+  .capcats ul{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:10px}
+  .capcats li{display:flex;gap:10px;font-size:.92rem;line-height:1.5;color:var(--ink-soft)}
+  .capcats li .mark{color:var(--pine)}
 
   /* INDUSTRIES */
   .industries{background:var(--panel)}
@@ -299,10 +320,89 @@
       <span class="eyebrow">What the AI does</span>
       <h2>Make every client feel like your only client.</h2>
       <p>People stay with the person who makes them feel like the priority. This keeps every conversation, promise, and detail in front of you, so every client gets that.</p>
-      <div style="margin-top:26px"><a href="#book" class="btn btn-primary">See everything it does</a></div>
     </div>
   </div>
+  <div class="wrap aidoes-extra">
+    <div class="capgrid">
+      <div class="cap"><h3>Scores and ranks leads</h3><p>Every contact ordered by likelihood to move forward, so the next call is never a guess.</p></div>
+      <div class="cap"><h3>Briefs you before a call</h3><p>Summarizes a contact's full history the moment you need it, so you walk in prepared.</p></div>
+      <div class="cap"><h3>Drafts your email</h3><p>Follow-ups, newsletters and updates, written from your own client data in your voice.</p></div>
+      <div class="cap"><h3>Flags stalling deals</h3><p>Catches leads and deals at risk of going quiet, and surfaces them before they go cold.</p></div>
+      <div class="cap"><h3>Answers in plain English</h3><p>Ask your pipeline a question in plain language and get the records back in seconds.</p></div>
+      <div class="cap"><h3>Writes your content</h3><p>Descriptions, social captions and client guides, generated from your records on demand.</p></div>
+    </div>
+    <div style="margin-top:32px"><button type="button" id="everythingOpen" class="btn btn-primary">See everything it does</button></div>
+  </div>
 </section>
+
+<div class="everything-modal" id="everythingModal" role="dialog" aria-modal="true" aria-labelledby="everythingTitle">
+  <div class="everything-panel">
+    <div class="everything-head">
+      <div>
+        <span class="eyebrow">Full capability list</span>
+        <h2 id="everythingTitle">Everything the AI does</h2>
+      </div>
+      <button type="button" class="everything-close" id="everythingClose" aria-label="Close">✕</button>
+    </div>
+    <div class="capcats">
+      <div>
+        <h3>Intelligence</h3>
+        <ul>
+          <li><span class="mark">+</span><span>Scores and ranks contacts by likelihood to move forward</span></li>
+          <li><span class="mark">+</span><span>Summarizes a contact's full history before a call</span></li>
+          <li><span class="mark">+</span><span>Detects intent and priority from email language</span></li>
+          <li><span class="mark">+</span><span>Flags stale records that need re-engagement</span></li>
+          <li><span class="mark">+</span><span>Deduplicates and cleans contact records</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Email and communication</h3>
+        <ul>
+          <li><span class="mark">+</span><span>Drafts personalized follow-ups from each contact's context</span></li>
+          <li><span class="mark">+</span><span>Generates newsletters segmented by audience</span></li>
+          <li><span class="mark">+</span><span>Writes announcement emails from your records</span></li>
+          <li><span class="mark">+</span><span>Drafts update and status-change notices</span></li>
+          <li><span class="mark">+</span><span>Composes birthday and milestone nurture messages</span></li>
+          <li><span class="mark">+</span><span>Summarizes long email threads into the activity log</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Content generation</h3>
+        <ul>
+          <li><span class="mark">+</span><span>Writes descriptions and summaries from raw attributes</span></li>
+          <li><span class="mark">+</span><span>Generates social captions and posting copy</span></li>
+          <li><span class="mark">+</span><span>Creates comparison summaries for clients</span></li>
+          <li><span class="mark">+</span><span>Drafts recaps after meetings and events</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Pipeline and deals</h3>
+        <ul>
+          <li><span class="mark">+</span><span>Summarizes pipeline status in plain language</span></li>
+          <li><span class="mark">+</span><span>Suggests the next best action per stage</span></li>
+          <li><span class="mark">+</span><span>Flags deals at risk of stalling</span></li>
+          <li><span class="mark">+</span><span>Generates weekly pipeline reports</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Client documents</h3>
+        <ul>
+          <li><span class="mark">+</span><span>Drafts guides personalized to each client</span></li>
+          <li><span class="mark">+</span><span>Creates overviews and one-pagers</span></li>
+          <li><span class="mark">+</span><span>Writes itineraries and schedules</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Automation and search</h3>
+        <ul>
+          <li><span class="mark">+</span><span>Natural-language queries over your whole CRM</span></li>
+          <li><span class="mark">+</span><span>Auto-tags and categorizes incoming activity</span></li>
+          <li><span class="mark">+</span><span>Nurture cadence suggestions for past clients and referrals</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
 <section id="industries" class="industries">
   <div class="wrap">
@@ -427,5 +527,19 @@
   openBtn.addEventListener('click',openLb);
   closeBtn.addEventListener('click',closeLb);
   lightbox.addEventListener('click',e=>{if(e.target===lightbox)closeLb();});
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&lightbox.classList.contains('open'))closeLb();});
+
+  const everythingModal=document.getElementById('everythingModal');
+  const everythingOpenBtn=document.getElementById('everythingOpen');
+  const everythingCloseBtn=document.getElementById('everythingClose');
+  function openEverything(){everythingModal.classList.add('open');everythingCloseBtn.focus();document.body.style.overflow='hidden';}
+  function closeEverything(){everythingModal.classList.remove('open');everythingOpenBtn.focus();document.body.style.overflow='';}
+  everythingOpenBtn.addEventListener('click',openEverything);
+  everythingCloseBtn.addEventListener('click',closeEverything);
+  everythingModal.addEventListener('click',e=>{if(e.target===everythingModal)closeEverything();});
+
+  document.addEventListener('keydown',e=>{
+    if(e.key!=='Escape')return;
+    if(lightbox.classList.contains('open'))closeLb();
+    if(everythingModal.classList.contains('open'))closeEverything();
+  });
 </script>
