@@ -418,7 +418,7 @@
   const openBtn=document.getElementById('watchBtn');
   const closeBtn=document.getElementById('lightboxClose');
   const lbVideo=document.getElementById('lightboxVideo');
-  const STREAM_SRC='https://customer-ezexebztyh5jp4ml.cloudflarestream.com/8ded3046073331cd5ef6857ae2bcffc0/iframe?autoplay=true&muted=false&controls=true';
+  const STREAM_SRC='https://customer-ezexebztyh5jp4ml.cloudflarestream.com/8ded3046073331cd5ef6857ae2bcffc0/iframe?muted=false&controls=true';
   function openLb(){
     lbVideo.innerHTML='<iframe src="'+STREAM_SRC+'" allow="autoplay; fullscreen; encrypted-media" allowfullscreen title="Custom AI CRM product video"></iframe>';
     lightbox.classList.add('open');closeBtn.focus();document.body.style.overflow='hidden';
