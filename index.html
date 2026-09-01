@@ -140,6 +140,8 @@
   .step h3{font-size:1.1rem;margin-bottom:4px}
   .step p{font-size:.98rem}
   .how-tag{margin-top:44px;text-align:center}
+  #how{padding-bottom:48px}
+  .aidoes{padding-top:48px}
   .how-tag h3{font-family:'Fraunces',serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:500;font-style:italic;color:var(--ink);max-width:24ch;margin:0 auto 22px}
 
   /* AI DOES */
@@ -308,7 +310,7 @@
     </div>
     <div class="how-tag">
       <h3>An assistant that never forgets a single promise you made.</h3>
-      <a href="#industries" class="btn btn-ghost">See everything it does</a>
+      <button type="button" class="btn btn-ghost js-open-everything">See everything it does</button>
     </div>
   </div>
 </section>
@@ -331,7 +333,7 @@
       <div class="cap"><h3>Answers in plain English</h3><p>Ask your pipeline a question in plain language and get the records back in seconds.</p></div>
       <div class="cap"><h3>Writes your content</h3><p>Descriptions, social captions and client guides, generated from your records on demand.</p></div>
     </div>
-    <div style="margin-top:32px"><button type="button" id="everythingOpen" class="btn btn-primary">See everything it does</button></div>
+    <div style="margin-top:32px"><button type="button" class="btn btn-primary js-open-everything">See everything it does</button></div>
   </div>
 </section>
 
@@ -529,11 +531,12 @@
   lightbox.addEventListener('click',e=>{if(e.target===lightbox)closeLb();});
 
   const everythingModal=document.getElementById('everythingModal');
-  const everythingOpenBtn=document.getElementById('everythingOpen');
+  const everythingTriggers=document.querySelectorAll('.js-open-everything');
   const everythingCloseBtn=document.getElementById('everythingClose');
+  let everythingLastTrigger=null;
   function openEverything(){everythingModal.classList.add('open');everythingCloseBtn.focus();document.body.style.overflow='hidden';}
-  function closeEverything(){everythingModal.classList.remove('open');everythingOpenBtn.focus();document.body.style.overflow='';}
-  everythingOpenBtn.addEventListener('click',openEverything);
+  function closeEverything(){everythingModal.classList.remove('open');if(everythingLastTrigger)everythingLastTrigger.focus();document.body.style.overflow='';}
+  everythingTriggers.forEach(btn=>btn.addEventListener('click',()=>{everythingLastTrigger=btn;openEverything();}));
   everythingCloseBtn.addEventListener('click',closeEverything);
   everythingModal.addEventListener('click',e=>{if(e.target===everythingModal)closeEverything();});
 
